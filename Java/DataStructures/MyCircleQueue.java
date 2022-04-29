@@ -1,13 +1,13 @@
 package Java.DataStructures;
 
-public class MyQueue {
-    
+public class MyCircleQueue {
+
     private int queue[];
     private int capacity;
     private int front;
     private int rear;
 
-    public MyQueue(int size){
+    public MyCircleQueue(int size){
         queue = new int[size];
         capacity = size;
         front = -1;
@@ -22,7 +22,7 @@ public class MyQueue {
 
         if(front == -1) front++;
 
-        rear++;
+        rear = (rear + 1) % capacity;
         queue[rear] = item;
 
     }
@@ -34,7 +34,7 @@ public class MyQueue {
         }
 
         int frontElement = queue[front];
-        front++;
+        front = (front + 1) % capacity;
 
         if(front == rear){
             front = -1;
@@ -49,7 +49,7 @@ public class MyQueue {
     }
 
     public Boolean isFull(){
-        return rear == capacity - 1;
+        return (front == rear + 1) || ((rear == capacity - 1) && (front == 0));
     }
 
     public int peek(){
@@ -65,11 +65,26 @@ public class MyQueue {
         String queueAsString = "[";
 
         if(!isEmpty()){
-            for(int i = front; i <= rear; i++){
-                if(i == front){
-                    queueAsString = queueAsString  + Integer.toString(queue[i]);
-                }else{
-                    queueAsString = queueAsString + " | " + Integer.toString(queue[i]);
+            if(front < rear){
+                for(int i = front; i <= rear; i++){
+                    if(i == front){
+                        queueAsString = queueAsString  + Integer.toString(queue[i]);
+                    }else{
+                        queueAsString = queueAsString + "| " + Integer.toString(queue[i]);
+                    }
+                }
+
+            }else{
+                for(int i = front; i < capacity; i++){
+                    if(i == capacity - 1){
+                        queueAsString = queueAsString + Integer.toString(queue[i]);
+                    }else{
+                        queueAsString = queueAsString + Integer.toString(queue[i]) + "| ";
+                    }
+                }
+
+                for(int i = 0; i <= rear; i++){
+                    queueAsString = queueAsString + "| " + Integer.toString(queue[i]);
                 }
             }
         }

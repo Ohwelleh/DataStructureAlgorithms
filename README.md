@@ -4,6 +4,8 @@ This repository is used for storing my Data Structure and Algorithm implementati
 ## Data Structures
 - Stack
 - Queue
+- Circular Queue
+- Priority Queue (Using a Max Heap)
 
 ## Algorithms
 To be filled in as I complete them.

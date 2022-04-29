@@ -1,5 +1,7 @@
 from MyStack import MyStack
 from MyQueue import MyQueue
+from MyCircleQueue import MyCircleQueue
+from MyPriorityQueue import MyPriorityQueue
 
 
 def stackTesting():
@@ -50,6 +52,55 @@ def queueTesting():
     print(secondQueue.isEmpty())
     print(secondQueue.isFull())
 
+def circleQueueTesting():
+    
+    cirQueue = MyCircleQueue(3)
+
+    print(cirQueue)
+
+    cirQueue.enQueue(3)
+    cirQueue.enQueue(22)
+    cirQueue.enQueue(31)
+
+    print(cirQueue)
+    cirQueue.deQueue()
+
+    print(cirQueue)
+
+    cirQueue.enQueue(312)
+
+    print(cirQueue)
+
+    cirQueue.deQueue()
+    cirQueue.enQueue(1234)
+
+    print(cirQueue)
+
+def priorityQueueTesting():
+    prioQueue = MyPriorityQueue()
+
+    prioQueue.insertion(3)
+    prioQueue.insertion(4)
+    prioQueue.insertion(9)
+    prioQueue.insertion(5)
+    prioQueue.insertion(2)
+
+    print(f'Priority Queue: {prioQueue}')
+
+    print(f'Priority Queue Peek: {prioQueue.peek()}')
+
+    print(f'Priority Queue: {prioQueue}')
+
+    extractedRoot = prioQueue.extractRoot()
+    print(f'Priority Queue Extract: {extractedRoot}')
+
+    print(f'Priority Queue: {prioQueue}')
+
+    prioQueue.deletion(4)
+
+    print(f'Priority Queue: {prioQueue}')
+
+
 
 def main():
     
@@ -57,8 +108,16 @@ def main():
     # stackTesting()
     # print()
 
-    print("Queue tests")
-    queueTesting()
+    # print("Queue tests")
+    # queueTesting()
+    # print()
+
+    # print("Circle Queue tests")
+    # circleQueueTesting()
+    # print()
+
+    print("Priority Queue tests")
+    priorityQueueTesting()
     print()
 
 if __name__ == '__main__':

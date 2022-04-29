@@ -76,16 +76,76 @@ public class Testing {
         System.out.println(secondQueue.isFull());
     }
 
+    public static void circleQueueTesting(){
+
+        MyCircleQueue cirQueue = new MyCircleQueue(3);
+
+        cirQueue.printQueue();
+
+        cirQueue.enQueue(3);
+        cirQueue.enQueue(22);
+        cirQueue.enQueue(31);
+
+        cirQueue.printQueue();
+        cirQueue.deQueue();
+
+        cirQueue.printQueue();
+
+        cirQueue.enQueue(312);
+
+        cirQueue.printQueue();
+
+        cirQueue.deQueue();
+        cirQueue.enQueue(1234);
+
+        cirQueue.printQueue();
+    }
+
+    public static void priorityQueueTesting(){
+        MyPriorityQueue prioQueue = new MyPriorityQueue();
+
+        prioQueue.insertion(3);
+        prioQueue.insertion(4);
+        prioQueue.insertion(9);
+        prioQueue.insertion(5);
+        prioQueue.insertion(2);
+
+        prioQueue.printPriorityQueue();
+
+        System.out.println("Priority Queue Peek: " + prioQueue.peek());
+
+        prioQueue.printPriorityQueue();
+
+        int rootExtracted = prioQueue.extractRoot();
+
+        System.out.println("Priority Queue Extract: " + rootExtracted);
+
+        prioQueue.printPriorityQueue();
+
+        prioQueue.deletion(4);
+
+        prioQueue.printPriorityQueue();
+    }
 
     public static void main(String args[]){
-
+        
+        System.out.println();
+        
         // System.out.println("Stack testing");
         // stackTesting();
-        // System.out.println("\n");
+        // System.out.println();
 
-        System.out.println("Queue testing");
-        queueTesting();
-        System.out.println("\n");
+        // System.out.println("Queue testing");
+        // queueTesting();
+        // System.out.println(;
+
+        // System.out.println("Circle Queue testing");
+        // circleQueueTesting();
+        // System.out.println();
+
+        System.out.println("Priority Queue testing");
+        priorityQueueTesting();
+        System.out.println();
 
     }
 }
